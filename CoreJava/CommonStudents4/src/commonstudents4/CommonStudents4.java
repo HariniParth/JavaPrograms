@@ -63,9 +63,12 @@ public class CommonStudents4 {
                             enroll = sc.next().charAt(0);
                             if(enroll == 'Y')
                                 courseB.add(newStudent);
+                        } else {
+                            System.out.println("Enter unique First name, Last name, Age combination");
                         }
                     }
-                } catch(Exception e){
+                } catch(Exception 
+                        e){
                     System.out.println("Enter alphabetical First name, Last name and positive integer for Age");
                 }
             }
