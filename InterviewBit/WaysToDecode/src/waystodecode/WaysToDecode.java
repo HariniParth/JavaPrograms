@@ -19,9 +19,9 @@ public class WaysToDecode {
     private int N;
     
     public int solution(String S){
-        int N = S.length();
         if(S == null)
             return 0;
+        N = S.length();        
         count = new int[N];
         Arrays.fill(count, -1);
         return ways(N-1);        
@@ -44,9 +44,7 @@ public class WaysToDecode {
     }
     
     private boolean isValidTwoDigits(int index){
-        if(index > 0 && (S.charAt(index-1) == '1' || S.charAt(index-2) == '2' && S.charAt(index) < '7'))
-            return true;
-        return false;
+        return index > 0 && (S.charAt(index-1) == '1' || S.charAt(index-2) == '2' && S.charAt(index) < '7');
     }
     
 }
