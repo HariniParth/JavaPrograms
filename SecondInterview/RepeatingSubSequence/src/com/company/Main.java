@@ -15,7 +15,7 @@ public class Main {
 
         for(int i=1;i<=n;i++){
             for(int j=1;j<=n;j++){
-                if(s.charAt(i) == s.charAt(j) && i != j)
+                if(s.charAt(i-1) == s.charAt(j-1) && i != j)
                     count[i][j] = count[i-1][j-1] + 1;
                 else
                     count[i][j] = Math.max(count[i-1][j], count[i][j-1]);
