@@ -8,7 +8,7 @@ public class Main {
         if(n == 0)
             return true;
 
-
+        return recurse(s, 0, n-1);
     }
 
     public boolean recurse(String s, int start, int end){
