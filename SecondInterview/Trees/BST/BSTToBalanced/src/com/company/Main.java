@@ -31,7 +31,7 @@ public class Main {
         TreeNode node = list.get(mid);
         node.left = buildNodeUtil(list, start, mid-1);
         node.right = buildNodeUtil(list, mid+1, end);
-        return node;    
+        return node;
     }
 
     public TreeNode buildNode(TreeNode node){
