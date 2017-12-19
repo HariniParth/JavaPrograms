@@ -22,7 +22,7 @@ public class Main{
             return -1;
     }
 
-    public int set(int key, int value){
+    public void set(int key, int value){
         if(!map.containsKey(key)){
             if(count < capacity){
                 addToFront(key, value);
