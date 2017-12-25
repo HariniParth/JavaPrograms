@@ -18,7 +18,7 @@ public class Main {
             m = n;
             n = (int) rem;
         }
-        
+
         return (int) result;
     }
 }
