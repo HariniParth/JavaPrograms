@@ -11,7 +11,7 @@ public class Main {
 
     Main(int v){
         this.V = v;
-        adj = new LinkedList[];
+        adj = new LinkedList[V];
         for(int i=0;i<v;i++)
             adj[i] = new LinkedList<>();
     }
