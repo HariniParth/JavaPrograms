@@ -40,7 +40,7 @@ public class Main {
                     dist[v] = dist[u] + graph[u][v];
             }
         }
-        
+
         printSolution(dist);
     }
 }
