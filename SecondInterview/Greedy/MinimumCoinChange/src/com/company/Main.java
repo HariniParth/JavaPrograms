@@ -22,6 +22,6 @@ public class Main {
 
         for(int i=0;i<coins.size();i++)
             System.out.print(coins.get(i)+" ");
-        
+
     }
 }
