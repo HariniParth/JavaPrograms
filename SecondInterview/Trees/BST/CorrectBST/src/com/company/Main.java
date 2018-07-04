@@ -45,9 +45,8 @@ public class Main {
                 } else {
                     last = node;
                 }
-            } else {
-                prev = node;
             }
+            prev = node;
 
             correctBSTUtil(node.right);
         }
