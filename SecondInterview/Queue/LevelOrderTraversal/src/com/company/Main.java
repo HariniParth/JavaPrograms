@@ -24,7 +24,7 @@ public class Main {
         Queue<TreeNode> q2 = new LinkedList<>();
 
         q1.add(node);
-        while(!q1.isEmpty() && !q2.isEmpty()){
+        while(!q1.isEmpty() || !q2.isEmpty()){
             while(!q1.isEmpty()){
                 if(q1.peek().left != null)
                     q2.add(q1.peek().left);
