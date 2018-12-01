@@ -4,45 +4,41 @@ import java.util.*;
 
 public class Main {
 
-    Queue<Integer> queue;
+    private Queue<Integer> queue;
 
-    public void interleave(){
+    private void interLeave(){
 
-        // Q: 11 12 13 14 15 16 17 18 19 20
+        // Q: 1 2 3 4 5 6 7 8 9 0
         Stack<Integer> stack = new Stack<>();
+
         for(int i=0;i<queue.size()/2;i++){
-            stack.add(queue.peek());
+            stack.push(queue.peek());
             queue.remove();
         }
-        // S: 15 14 13 12 11
-        // Q: 16 17 18 19 20
-
-        while(!stack.isEmpty()){
+        // Q: 6 7 8 9 0
+        // S: 5 4 3 2 1
+        for(int i=0;i<stack.size();i++){
             queue.add(stack.peek());
             stack.pop();
         }
-        // Q: 16 17 18 19 20 15 14 13 12 11
-
+        // Q: 6 7 8 9 0 5 4 3 2 1
         for(int i=0;i<queue.size()/2;i++){
             queue.add(queue.peek());
             queue.remove();
         }
-        // Q: 15 14 13 12 11 16 17 18 19 20
-
+        // Q: 5 4 3 2 1 6 7 8 9 0
         for(int i=0;i<queue.size()/2;i++){
-            stack.add(queue.peek());
+            stack.push(queue.peek());
             queue.remove();
         }
-        // S: 11 12 13 14 15
-        // Q: 16 17 18 19 20
-
+        // Q: 6 7 8 9 0
+        // S: 1 2 3 4 5
         while(!stack.isEmpty()){
             queue.add(stack.peek());
             stack.pop();
             queue.add(queue.peek());
             queue.remove();
         }
-        // Q: 11 16 12 17 13 18 14 19 15 20
+        // Q: 1 6 2 7 3 8 4 9 5 0
     }
-
 }
