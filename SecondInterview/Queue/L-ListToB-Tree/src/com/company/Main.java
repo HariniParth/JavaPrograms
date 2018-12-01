@@ -24,9 +24,10 @@ class ListNode{
 
 public class Main {
 
-    ListNode head;
+    private ListNode head;
 
-    public TreeNode ListToTree(TreeNode node){
+    private TreeNode convertListToTree(TreeNode node){
+
         Queue<TreeNode> queue = new LinkedList<>();
         node = new TreeNode(head.val);
         queue.add(node);
@@ -37,8 +38,8 @@ public class Main {
             TreeNode left, right = null;
             left = new TreeNode(head.val);
             queue.add(left);
-
             head = head.next;
+
             if(head != null){
                 right = new TreeNode(head.val);
                 queue.add(right);
