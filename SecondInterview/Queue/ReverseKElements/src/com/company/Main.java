@@ -6,22 +6,23 @@ public class Main {
 
     Queue<Integer> queue;
 
-    public void reverse(int k){
-        if(!queue.isEmpty() || k >= queue.size())
+    private void reverseKElements(int k){
+
+        if(queue.isEmpty())
             return;
-        if(k <= 0)
+        if(k >= queue.size() || k < 0)
             return;
 
         Stack<Integer> stack = new Stack<>();
         for(int i=0;i<k;i++){
-            stack.add(queue.peek());
+            stack.push(queue.peek());
             queue.remove();
         }
         while(!stack.isEmpty()){
             queue.add(stack.peek());
             stack.pop();
         }
-        for(int i=0;i<queue.size()-k;i++){
+        for(int i=0;i<k;i++){
             queue.add(queue.peek());
             queue.remove();
         }
