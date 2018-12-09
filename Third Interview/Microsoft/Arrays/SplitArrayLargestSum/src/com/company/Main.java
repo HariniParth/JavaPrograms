@@ -1,39 +1,49 @@
 package com.company;
 
+// http://shirleyisnotageek.blogspot.com/2016/10/split-array-largest-sum.html
+
 public class Main {
 
-    private int splitArrayLargestSum(int[] arr, int cuts){
+    private int numSplits(int[] arr, int numSplits){
 
-        int n = arr.length;
-        long l = 0, r = 0;
-        for(int i=0;i<n;i++){
-            r += arr[i];
-            if(l < arr[i]){
-                l = arr[i];
-            }
+        if(arr.length == 0)
+            return 0;
+
+        int left = 0, right = 0;
+        for(int num : arr){
+            left = Math.max(left, num);
+            right += num;
         }
 
-        long result = 0;
-        while(l <= r){
-            long mid = (l + r) >> 1;
-            long sum = 0;
-            int count = 1;
-            for(int i=0;i<n;i++){
-                if(sum + arr[i] > mid){
-                    count++;
-                    sum = arr[i];
-                } else {
-                    sum += arr[i];
-                }
-            }
-            if(count < cuts){
-                result = Math.max(result, mid);
-                r = mid - 1;
+        if(numSplits == arr.length)
+            return left;
+        if(numSplits == 1)
+            return right;
+
+        while(left < right){
+            int mid = (left+right)/2;
+            if(canSplit(arr, mid, numSplits)){
+                right = mid;
             } else {
-                l = mid + 1;
+                left = mid + 1;
             }
         }
+        return left;
+    }
 
-        return (int) result;
+    private boolean canSplit(int[] arr, int maxVal, int numSplits){
+
+        int countSplits = 1;
+        int currSum = 0;
+        for(int num : arr){
+            currSum += num;
+            if(currSum > maxVal){
+                currSum = maxVal;
+                countSplits++;
+                if(countSplits > numSplits)
+                    return false;
+            }
+        }
+        return true;
     }
 }
