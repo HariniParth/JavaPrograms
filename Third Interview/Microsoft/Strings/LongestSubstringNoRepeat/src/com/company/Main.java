@@ -6,22 +6,18 @@ import java.util.*;
 
 public class Main {
 
-    private String longestSubstringNoRepeating(String s){
+    private String longestSubstringNonRepeating(String s){
 
         int n = s.length();
-        int start = 0;
-        int maxLen = 0;
-        int st = 0;
-        int len = 0;
+        int start = 0, maxLen = 0, st = 0, len = 0;
 
-        Map<Character, Integer> map = new HashMap<>();
+        HashMap<Character, Integer> map = new HashMap<>();
         map.put(s.charAt(0), 0);
 
         for(int i=0;i<n;i++){
             if(!map.containsKey(s.charAt(i))){
                 map.put(s.charAt(i), i);
-            }
-            else {
+            } else {
                 if(map.get(s.charAt(i)) >= st){
                     len = i - st;
                     if(len > maxLen){
@@ -32,11 +28,12 @@ public class Main {
                 }
                 map.put(s.charAt(i), i);
             }
-            if(maxLen < i-st){
+            if(maxLen < i - st){
                 maxLen = i - st;
                 start = st;
             }
         }
+
         return s.substring(start, maxLen);
     }
 }
